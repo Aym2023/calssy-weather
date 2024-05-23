@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+  super(props);
+  this.state = {loacation : 'lispon'};
+  this.handelfetch = this.handelfetch.bind(this);
+  }
+
+  handelfetch () {
+  // this.setState();
+  console.log(this);
+  }
+
+  render() {
+    return (
+      <div className='app'>
+        <h3>Classy Weather</h3>
+        <div>
+          <input 
+          type='text'
+          placeholder='Search from location  ....'
+          value={this.state.loacation}
+          />
+          <button onClick={(e) => this.setState({ location: e.target.value })}>get location</button>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
+
